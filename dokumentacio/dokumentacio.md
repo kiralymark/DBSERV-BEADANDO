@@ -1,103 +1,123 @@
-// 2 .  
-I. rész
-Beadandó Feladat: Online Könyvesbolt Adatbázis Rendszer Kialakítása,
-Manuális adatbeszúrás
-Bevezetés és feladatleírás
-A feladat célja egy online könyvesbolt adatbázis rendszer kialakítása volt. 
-A feladat az adatbázis megtervezésével indul.
-Adatbázis Tervezés, Normálforma, Partícionálás, Adatbázis táblák szerkezete
-Az adatbázis táblák szerkezete
+**Adatbázis-szerverek  
+Dokumentáció  
+Név: Király Márk**  
+  
+**Mérnökinformatikus szak  
+Nappali tagozat  
+5. félév  
+2024/2025. tanév  
+Budapest**  
+  
+   
+## I. rész  
+**Beadandó Feladat: Online Könyvesbolt Adatbázis Rendszer Kialakítása,
+Manuális adatbeszúrás**  
+  
+Bevezetés és feladatleírás  
+A feladat célja egy online könyvesbolt adatbázis rendszer kialakítása volt.  
+A feladat az adatbázis megtervezésével indul.  
+  
+Adatbázis Tervezés, Normálforma, Partícionálás, Adatbázis táblák szerkezete  
+  
+Az adatbázis táblák szerkezete  
 Az online könyvesbolt adatbázis a következő adatokat kezeli a táblák 
 segítségével.
-Vásárlók: A Vasarlok tábla a vásárlók adatait tárolja, város szerint partícionált.
-A tábla oszlopai:
-vasarlo_id: Egyedi azonosító (automatikusan generált).
-teljes_nev: A vásárló teljes neve (kötelező).
-email: A vásárló email címe (kötelező).
-varos: A vásárló lakhelyének városa.
-Elsődleges összetett kulcs: vasarlo_id és varos.
-A tábla partíciói:
+  
+Vásárlók: A Vasarlok tábla a vásárlók adatait tárolja, város szerint partícionált.  
+A tábla oszlopai:  
+vasarlo_id: Egyedi azonosító (automatikusan generált).  
+teljes_nev: A vásárló teljes neve (kötelező).  
+email: A vásárló email címe (kötelező).  
+varos: A vásárló lakhelyének városa.  
+Elsődleges összetett kulcs: vasarlo_id és varos.  
+  
+A tábla partíciói:  
 Vasarlok_Budapest: Azokat a vásárlókat tartalmazza, akik Budapesten 
-élnek.
-Vasarlok_Miskolc: Miskolci vásárlók.
-Vasarlok_Szikszo: Szikszói vásárlók.
-Vasarlok_Siofok: Siófoki vásárlók.
-Vasarlok_Egyeb: Más városban lakó vásárlók (ez az alapértelmezett).
+élnek.  
+Vasarlok_Miskolc: Miskolci vásárlók.  
+Vasarlok_Szikszo: Szikszói vásárlók.  
+Vasarlok_Siofok: Siófoki vásárlók.  
+Vasarlok_Egyeb: Más városban lakó vásárlók (ez az alapértelmezett).  
+  
 
-
-3  
-Rendelések: A rendelések adatait tartalmazza.
-A tábla oszlopai:
+  
+Rendelések: A rendelések adatait tartalmazza.  
+A tábla oszlopai:  
 rendeles_id: Egyedi azonosító (elsődleges kulcs, automatikusan 
-generált).
-vasarlo_id: A vásárló azonosítója (külső kulcs a Vasarlok táblára).
-varos: A vásárló városa (külső kulcs a Vasarlok táblára).
-rendeles_datum: A rendelés dátuma (kötelező).
+generált).  
+vasarlo_id: A vásárló azonosítója (külső kulcs a Vasarlok táblára).  
+varos: A vásárló városa (külső kulcs a Vasarlok táblára).  
+rendeles_datum: A rendelés dátuma (kötelező).  
 rendeles_allapot: A rendelés állapota (rendeles_allapot_enum típus, 
-alapértelmezett értéke: “Folyamatban”).
-Kapcsolat: Minden rendelés egy vásárlóhoz tartozik. 
-Összetett külső kulcs van (vasarlo_id, varos).
-Könyvek: Információkat tartalmaz a könyvekről, mint cím, szerző, ár, készlet.
-A tábla oszlopai:
-konyv_id: Egyedi azonosító (elsődleges kulcs, automatikusan generált).
-cim: A könyv címe (kötelező).
-szerzo: A szerző neve (kötelező).
-ar: A könyv ára (maximum 8 számjegy, 2 tizedesjeggyel).
-darab: A raktárban elérhető mennyiség (kötelező).
-van_keszleten: Készlet állapot (alapértelmezett értéke: ‘false’).
-kiadas_datuma: A könyv kiadási dátuma.
-Számlák: A vásárlásokat tartalmazó számlákat tárolja..
-A tábla oszlopai:
-szamla_id: Egyedi azonosító (kulcs, automatikusan generált).
+alapértelmezett értéke: “Folyamatban”).  
+Kapcsolat: Minden rendelés egy vásárlóhoz tartozik.  
+Összetett külső kulcs van (vasarlo_id, varos).  
+  
+Könyvek: Információkat tartalmaz a könyvekről, mint cím, szerző, ár, készlet.  
+A tábla oszlopai:  
+konyv_id: Egyedi azonosító (elsődleges kulcs, automatikusan generált).  
+cim: A könyv címe (kötelező).  
+szerzo: A szerző neve (kötelező).  
+ar: A könyv ára (maximum 8 számjegy, 2 tizedesjeggyel).  
+darab: A raktárban elérhető mennyiség (kötelező).  
+van_keszleten: Készlet állapot (alapértelmezett értéke: ‘false’).  
+kiadas_datuma: A könyv kiadási dátuma.  
+  
+Számlák: A vásárlásokat tartalmazó számlákat tárolja..  
+A tábla oszlopai:  
+szamla_id: Egyedi azonosító (kulcs, automatikusan generált).  
 rendeles_id: A számla rendeléshez kapcsolódik (külső kulcs a 
-Rendelesek táblára).
-teljes_osszeg: A rendelés teljes összege (kötelező).
-teljesites_datuma: A számla teljesítésének dátuma.
-Kapcsolat:
-Összetett kulcs van (szamla_id, rendeles_id).
-
-4  
-Tételek: A rendeléshez tartozó könyvtételek táblája.
-A tábla oszlopai:
-rendeles_id: A rendelés azonosítója (külső kulcs a Rendelesek táblára).
-konyv_id: A könyv azonosítója (külső kulcs a Konyvek táblára).
-mennyiseg: A rendelésben szereplő könyv mennyisége (kötelező).
+Rendelesek táblára).  
+teljes_osszeg: A rendelés teljes összege (kötelező).  
+teljesites_datuma: A számla teljesítésének dátuma.  
+Kapcsolat:  
+Összetett kulcs van (szamla_id, rendeles_id).  
+  
+  
+Tételek: A rendeléshez tartozó könyvtételek táblája.  
+A tábla oszlopai:  
+rendeles_id: A rendelés azonosítója (külső kulcs a Rendelesek táblára).  
+konyv_id: A könyv azonosítója (külső kulcs a Konyvek táblára).  
+mennyiseg: A rendelésben szereplő könyv mennyisége (kötelező).  
 Elsődleges összetett kulcs: rendeles_id, konyv_id.
-Kapcsolatok:
+  
+Kapcsolatok:  
 A Vasarlok és a Rendelesek tábla kapcsolatban áll a vásárlók 
-azonosítója (vasarlo_id) és városa (varos) alapján.
+azonosítója (vasarlo_id) és városa (varos) alapján.  
 A Rendelesek tábla és a Szamlak tábla között kapcsolat van a rendelés 
-azonosító (rendeles_id) alapján.
+azonosító (rendeles_id) alapján.  
 A Rendelesek és a Tetelek tábla között kapcsolat van a rendelés 
-azonosító (rendeles_id) alapján.
+azonosító (rendeles_id) alapján.  
 A Tetelek tábla kapcsolatban áll a Konyvek táblával a könyv azonosító 
-(konyv_id) alapján.
+(konyv_id) alapján.  
 A táblák létrehozása előtt létre lesz hozva egy ‘ENUM’ típus ami ‘string’ adatok 
-tárolását teszi lehetővé.
-Ez az ‘ENUM’ a Rendelések táblában kerül felhasználásra.
-A “rendelés állapot” lehet “Folyamatban”, “Teljesitett” vagy “Torolt”.
-Optimális az adatbázis terv, több érv is mellette szól.
+tárolását teszi lehetővé.  
+Ez az ‘ENUM’ a Rendelések táblában kerül felhasználásra.  
+A “rendelés állapot” lehet “Folyamatban”, “Teljesitett” vagy “Torolt”.  
+Optimális az adatbázis terv, több érv is mellette szól.  
 Vásárlók tábla partícionálva van: A városok szerinti partíciók hatékonyabb 
-lekérdezést tesznek lehetővé.
+lekérdezést tesznek lehetővé.  
 Van rendelés állapot: Az ’ENUM’ típus használata megakadályozza az állapot 
-érvénytelen értékre állítását.
+érvénytelen értékre állítását.  
 Van készletkezelés: A ”van_keszleten” oszlop mutatja, hogy egy könyv 
-elérhető-e a készleten.
-Van számlázás: A Szamlak tábla minden rendeléshez egyedi számlát kapcsol.
-
-5  
+elérhető-e a készleten.  
+Van számlázás: A Szamlak tábla minden rendeléshez egyedi számlát kapcsol.  
+  
+  
 Az adatbázis szerkezet rugalmasan kezeli a vásárlókat, rendeléseket, 
 könyveket és számlákat, továbbá a város szerinti partícionálás gyorsítja az 
 adatok elérését.
+  
 Az adatbázis szerkezeti terve megfelel a Harmadik Normál Forma 
 követelményeinek. A Harmadik Normál Forma alapján az adatok ismétlődés 
 mentesek és a szerkezeti integritás erős. Fontos még továbbá, hogy egyik 
 nem kulcs attribútum sem függ
 más nem kulcs attribútumtól.
+  
 Az adatbázis Vásárlók táblája partícionálást használ. Ez lehetővé teszi az 
 adatok hatékonyabb kezelését. A nagy adatmennyiségeket kisebb, 
-kezelhetőbb darabokra osztjuk általa. 
-A Vásárlók tábla város mezője kisebb darabokra van osztva:
+kezelhetőbb darabokra osztjuk általa.  
+A Vásárlók tábla város mezője kisebb darabokra van osztva:  
 Budapest, Miskolc, Siófok, Szikszó, Egyéb (ez az alapértelmezett érték).
 A lekérdezések idejének meggyorsításában segít például a partícionálás.
 Adatbázis technológiák és adatbázis kezdeti beállítások elvégzése
@@ -449,12 +469,12 @@ Ha a rendelés nem tartalmaz tételeket, hibaüzenet jelenik meg.
 
 
 
-
-19  
-II. rész
-Beadandó Feladat: Online Könyvesbolt Adatbázis Rendszer Kialakítása,
+  
+## II. rész  
+**Beadandó Feladat: Online Könyvesbolt Adatbázis Rendszer Kialakítása,
 Automatikus adatbeszúrás,
-Teljesítmény analízis
+Teljesítmény analízis**
+  
 {FÁJL: Script-02.sql}
 Bevezetés és feladatleírás
 Az adatbázist a 
@@ -613,5 +633,4 @@ Triggerek és tárolt eljárások: Automatikus műveletek segítik a rendszer
 hatékonyságát, de figyelni kell arra, hogy ne terheljék túl a rendszert.
 
 
-// 27 .
 
