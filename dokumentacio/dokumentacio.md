@@ -505,7 +505,7 @@ az eljárás üzenetet küld és kilép.
   
 Teljes összeg számítása:  
 Az eljárás kiszámítja a rendelés teljes értékét a Tetelek és Konyvek 
-táblák alapján.
+táblák alapján.  
 A tételek mennyiségét megszorozza az adott könyv árával.
 Ha nincsenek tételek, hibát jelez.  
   
@@ -533,162 +533,203 @@ Ha a rendelés nem tartalmaz tételeket, hibaüzenet jelenik meg.
 Automatikus adatbeszúrás,
 Teljesítmény analízis**
   
-{FÁJL: Script-02.sql}
-Bevezetés és feladatleírás
+[{FÁJL: Script-02.sql}](../Script-02.sql)  
+  
+Bevezetés és feladatleírás  
+  
 Az adatbázist a 
 teljesítmény analízis elvégzéséhez 
 hoztam létre.
-A második adatbázishoz kerültek be 
-az automatikusan létrehozott (10000 sornyi) adatok.
-A feladat célja egy online könyvesbolt adatbázis rendszer kialakítása volt. 
-A feladat az adatbázis megtervezésével indul.
-Adatbázis Tervezés, Adatbázis táblák szerkezete
-Az adatbázis táblák szerkezete
+A **második adatbázishoz** kerültek be 
+az automatikusan létrehozott (10000 sornyi) adatok.  
+  
+A feladat célja egy online könyvesbolt adatbázis rendszer kialakítása volt.  
+A feladat az adatbázis megtervezésével indul.  
+  
+Adatbázis Tervezés, Adatbázis táblák szerkezete  
+  
+Az adatbázis táblák szerkezete  
+  
 Az online könyvesbolt adatbázis a következő adatokat kezeli a táblák 
-segítségével.
-Az adatbázis szerkezet, az adattípusok megegyeznek az első adatbáziséval.
-
-
-20  
-Adatbázis táblák:
+segítségével.  
+  
+Az adatbázis szerkezet, az adattípusok megegyeznek az első adatbáziséval.  
+  
+  
+Adatbázis táblák:  
 Vásárlók, 
 Rendelések, 
 Könyvek, 
 Számlák,
 Tételek
+  
 Adatbázis Teljesítmény Analízis, Adatok beszúrása 10000 rekorddal, 
-Összetett SQL lekérdezés írása
-Adatok beszúrása automatikusan (10000 sor)
+Összetett SQL lekérdezés írása  
+  
+Adatok beszúrása automatikusan (10000 sor)  
+  
 Itt több táblába tömegesen generálunk, szúrunk be adatokat, mesterséges 
 tesztadatok előállításához. Az összes tábla feltöltésre kerül adatokkal. 
-Több tábla 10000 rekorddal kerül feltöltésre.
-Vásárlók tábla feltöltése
-Működés:
-Generált adatok:
-teljes_nev: Számozott vásárlói nevek, pl. "Vásárló_1", "Vásárló_2".
-email: Egyedi e-mail címek azonosítóval, pl. "email_1@example.com".
+Több tábla 10000 rekorddal kerül feltöltésre.  
+  
+Vásárlók tábla feltöltése  
+  
+Működés:  
+  
+Generált adatok:  
+teljes_nev: Számozott vásárlói nevek, pl. "Vásárló_1", "Vásárló_2".  
+email: Egyedi e-mail címek azonosítóval, pl. "email_1@example.com".  
 varos: Négy város közül választ, körforgással: Budapest, Miskolc, 
-Szikszó, Siófok.
+Szikszó, Siófok.  
+  
 
 
-
-21  
-Rendelések tábla feltöltése
-Működés:
-Generált adatok:
-vasarlo_id: Véletlenszerűen rendel vásárlókat a rendelésekhez.
-varos: A vásárló lakóhelye.
+ 
+Rendelések tábla feltöltése  
+  
+Működés:  
+  
+Generált adatok:  
+  
+vasarlo_id: Véletlenszerűen rendel vásárlókat a rendelésekhez.  
+varos: A vásárló lakóhelye.  
 rendeles_datum: A mai naphoz képest az elmúlt 365 nap egyikére 
-állítja a rendelés dátumát.
+állítja a rendelés dátumát.  
 rendeles_allapot: Három állapot közül választ: Teljesitett, Folyamatban, 
-Torolt.
-Könyvek tábla feltöltése
-Működés:
-Generált adatok:
-cim: Számozott könyvcímek, pl. "Könyv_1", "Könyv_2".
-szerzo: Számozott szerzői nevek.
-ar: Véletlenszerű ár 100 és 599 között.
-darab: Véletlenszerű készlet (10–59 között).
+Torolt.  
+  
+Könyvek tábla feltöltése  
+  
+Működés:  
+  
+Generált adatok:  
+cim: Számozott könyvcímek, pl. "Könyv_1", "Könyv_2".  
+szerzo: Számozott szerzői nevek.  
+ar: Véletlenszerű ár 100 és 599 között.  
+darab: Véletlenszerű készlet (10–59 között).  
 van_keszleten: Ha a készlet nagyobb mint 0, akkor igaz; különben 
-hamis.
-kiadas_datuma: Az elmúlt 365 nap egyikére állítja a kiadás dátumát.
+hamis.  
+kiadas_datuma: Az elmúlt 365 nap egyikére állítja a kiadás dátumát.  
+  
 
 
-
-22  
-Tételek tábla feltöltése
-Működés:
-Generált adatok:
-rendeles_id: Véletlenszerűen kapcsolja a rendeléseket a tételekhez.
-konyv_id: Véletlenszerű könyvet kapcsol a tételhez.
+  
+Tételek tábla feltöltése  
+  
+Működés:  
+  
+Generált adatok:  
+rendeles_id: Véletlenszerűen kapcsolja a rendeléseket a tételekhez.  
+konyv_id: Véletlenszerű könyvet kapcsol a tételhez.  
 mennyiseg: Véletlenszerű mennyiség (1–10 között), amely nem haladja 
-meg a könyv készletét.
-Számlák tábla feltöltése
-Ehhez tárolt eljárást használtam.
+meg a könyv készletét.  
+  
+Számlák tábla feltöltése  
+  
+Ehhez tárolt eljárást használtam.  
 Ugyanazt a tárolt eljárást használom, ugyanazzal a működéssel 
-mint az első adatbázisban.
+mint az **első adatbázisban.**  
+  
 A Számlák tábla feltöltéséhez meghívom
 Rendelések táblában 
 található “rendeles_id” kulcsra
 1 -től 10000 -ig a
-tárolt eljárást.
-
-
-23  
+tárolt eljárást.  
+  
+  
 Adatbázis Teljesítmény Analízis, Összetett SQL lekérdezés írása,
-Index használat előtt
 Index használat előtt  
-1 . ábra  
+  
+Index használat előtt  
+  
+**1 . ábra**
+  
 A teljesítmény analízis 
 végezhető
 a parancssorban (CMD) 
-például.
+például.  
+  
 Indexelési technikák alkalmazásával az adatbázis teljesítményének 
-javítása lenne optimális.
+javítása lenne optimális.  
 A cél az, hogy megvizsgáljuk, hogyan hat az indexelés a lekérdezések 
-végrehajtási idejére.
-
-
-24  
+végrehajtási idejére.  
+  
+  
 Az összetett lekérdezés ami meg lett írva azt csinálja, hogy kiszámolja az 
-átlagos rendelési értéket városonként.
-Működés:
-Feladat:
-Az átlagos rendelési érték (számlák alapján) kiszámítása városonként.
-Kapcsolatok:
+átlagos rendelési értéket városonként.  
+  
+Működés:  
+  
+Feladat:  
+Az átlagos rendelési érték (számlák alapján) kiszámítása városonként.  
+  
+Kapcsolatok:  
 Vasarlok és Rendelesek: Vásárlók azonosítója (vasarlo_id) és városa 
-(varos).
-Rendelesek és Szamlak: Rendelések azonosítója (rendeles_id).
-Aggregálás:
+(varos).  
+Rendelesek és Szamlak: Rendelések azonosítója (rendeles_id).  
+  
+Aggregálás:  
 Az egyes városokra csoportosított átlagos 
-rendelési összeg (AVG(s.teljes_osszeg)).
-Az Explain Analyze használata
+rendelési összeg (AVG(s.teljes_osszeg)).  
+  
+Az Explain Analyze használata  
 Ezt az utasítást a lekérdezés végrehajtási tervének elemzésére 
-használjuk.
+használjuk.  
 Információt ad a sorok számáról, szűrési feltételekről, és a végrehajtási 
-időről.
-Indexelés nélkül:
+időről.  
+  
+Indexelés nélkül:  
 Az elemzés célja az lenne, hogy 
 megmérjük a lekérdezés végrehajtási idejét indexelés alkalmazása 
-nélkül.
+nélkül.  
+  
 
-
-25  
 Index használat után  
-2 . ábra  
+  
+**2 . ábra**  
+  
 Az adatbázis teljesítményének javítása érdekében létrehozunk indexeket a 
-gyakran használt oszlopokra.
-Ezáltal a lekérdezés lefutási ideje rövidebb lesz.
+gyakran használt oszlopokra.  
+Ezáltal a lekérdezés lefutási ideje rövidebb lesz.  
+  
 Indexelés után a
-működés:
+működés:  
+  
 Cél: Az index gyorsítja az ”ON v.varos = r.varos” feltétellel kapcsolódó 
-keresést.
-Hatás:
+keresést.  
+  
+Hatás:  
 Csökkenti a lekérdezések futási idejét, különösen nagy adatállományok 
-esetén.
+esetén.  
 Az indexelés lehetővé teszi az adatbázis számára, hogy 
-hatékonyabban szűrje és rendezze az adatokat.
-
-
-26  
+hatékonyabban szűrje és rendezze az adatokat.  
+  
+  
 EXPLAIN ANALYZE ismételt futtatása után a
-működés:
+működés:  
 Az elemzés célja, hogy összehasonlítsa a futási időt az indexelés 
-előttivel.
-Várható eredmény:
+előttivel.  
+  
+Várható eredmény:  
 A lekérdezés végrehajtási ideje rövidebb lesz, különösen sok adatsor 
-esetén.
+esetén.  
+  
 Indexelés után tehát gyorsul az ’ON’ és ’WHERE’ feltételek végrehajtása.
-A futási idő is jelentősen csökken.
-Teljesítmény Analízis és Javaslatok
-Az adatbázis teljesítményének elemzése során figyelembe kell venni:
+A futási idő is jelentősen csökken.  
+  
+Teljesítmény Analízis és Javaslatok  
+  
+Az adatbázis teljesítményének elemzése során figyelembe kell venni:  
+  
 Indexek: Az indexek növelik a keresések gyorsaságát, de lassítják az 
 adatmódosító műveleteket (INSERT/UPDATE/DELETE). Érdemes 
-olyan mezőkre indexet létrehozni, amelyekre gyakran keresünk.
+olyan mezőkre indexet létrehozni, amelyekre gyakran keresünk.  
+  
 Partícionálás: A vásárlók tábla partícionálása javítja a lekérdezések 
-teljesítményét város alapú lekérdezéseknél.
+teljesítményét város alapú lekérdezéseknél.  
+  
 Triggerek és tárolt eljárások: Automatikus műveletek segítik a rendszer 
-hatékonyságát, de figyelni kell arra, hogy ne terheljék túl a rendszert.
+hatékonyságát, de figyelni kell arra, hogy ne terheljék túl a rendszert.  
 
 
 
