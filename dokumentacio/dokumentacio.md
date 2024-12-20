@@ -180,14 +180,14 @@ A parancssorban a
 parancsokkal elindítom mindkét
 konténer futását.  
   
-A parancssorban a 
-```docker exec```
+A parancssorban a  
+```docker exec```  
 parancssal
 hozzáférek az adott konténerhez
 (belépek a konténerbe).  
   
 Az  
-```exit```
+```exit```  
 paranccsal kilépek az adott
 konténerből.  
   
@@ -202,284 +202,329 @@ parancs visszaadja az aktuálisan
 csatlakoztatott adatbázis nevét.  
   
 
-A parancssorban a 
-\c konyvesbolt_beadando_2
+A parancssorban a  
+```\c konyvesbolt_beadando_2```  
 parancs a 
 konyvesbolt_beadando_2 adatbázist 
-csatlakoztatja.
-A parancssorban a 
-\dt
+csatlakoztatja.  
+  
+A parancssorban a  
+```\dt```  
 parancs kilistázza az aktuálisan
-csatlakoztatott adatbázis tábláit.
+csatlakoztatott adatbázis tábláit.  
+  
 A parancssorban “psql” segítségével
 csatlakoztam a 
-kettő Docker konténerhez.
+**kettő Docker konténerhez.**  
 Ezután tudtam kiadni további 
 utasításokat az adott konténerhez
-csatlakoztatott adatbázissal kapcsolatban.
+csatlakoztatott adatbázissal kapcsolatban.  
+  
 A parancssorban kiadott 
 utasítások után megnyitom a 
-DBeaver -t.
-(A kettő konténer esetében külön-külön
-elvégzem a következő lépéseket.)
-Bal felül rákattintok a 
+DBeaver -t.  
+(A **kettő konténer** esetében külön-külön
+elvégzem a következő lépéseket.)  
+  
+Bal felül rákattintok a  
 “Create a new connection” menü 
-opcióra.
-Kiválasztom a PostgreSQL -t.
+opcióra.  
+Kiválasztom a PostgreSQL -t.  
 Ezután rányomok a 
-“Next” feliratú gombra.
-
-9  
-A “Connection Settings” 
+“Next” feliratú gombra.  
+  
+  
+A “Connection Settings”  
 ablakában
 megadom a szükséges 
 adatokat. Beállítom a portot
-és a jelszót is.
-A “Test Connection” gombbal
+és a jelszót is.  
+A “Test Connection” gombbal  
 tudom letesztelni, hogy van 
-csatlakozás vagy nincs.
+csatlakozás vagy nincs.  
 Ezután a “Finish” gombra 
-kattintok.
+kattintok.  
+  
 Bal felül rákattintok az SQL Editor
 menüpontra és 
-itt futtatom a megírt SQL kódokat.
+itt futtatom a megírt SQL kódokat.  
 Például itt futtatom az SQL tábla létrehozásokat 
-és az SQL beszúrásokat is.
-A manuális SQL adatbeszúrások megírása
-{FÁJL: Script-01.sql}
+és az SQL beszúrásokat is.  
+  
+A manuális SQL adatbeszúrások megírása  
+[{FÁJL: Script-01.sql}](../Script-01.sql)  
+  
 Az SQL tábla létrehozások kódjának 
 lefuttatása után 
 az SQL adatbeszúrások kódját is 
-lefuttatom.
+lefuttatom.  
 A táblákba adatokat 
 szúrok be manuálisan.
 Az ’INSERT INTO …’
 sql parancsokkal 
 szúrok be adatokat 
 a megfelelő 
-táblákba.
-
-
-10  
+táblákba.  
+  
+  
 A Könyvek tábla esetén, ha a 
 darab nagyobb mint 0 
 akkor a ”van_keszleten”
-értéke “true” kell hogy legyen.
+értéke “true” kell hogy legyen.  
+  
 A Vásárlók táblába
 partícionálva kerülnek 
-beszúrásra a sorok.
+beszúrásra a sorok.  
+  
 A Rendelések táblába
 az összetett kulcsok 
 értékeit figyelembe veszem
-a sorok beszúrásakor.
+a sorok beszúrásakor.  
 A Rendelések táblába
 az ‘ENUM’ 
 értékeit figyelembe veszem
-a sorok beszúrásakor.
+a sorok beszúrásakor.  
 A Tételek táblába
 az összetett kulcsok
 értékeit figyelembe veszem
-a sorok beszúrásakor.
+a sorok beszúrásakor.  
 A Tételek táblába
 az “mennyiseg”
 értékeit figyelembe veszem
-a sorok beszúrásakor.
+a sorok beszúrásakor.  
+  
 A Számlák táblába később 
 lesz beszúrva sor tárolt 
-eljárások segítségével.
-
-
-11  
-Lekérdezések megírása
+eljárások segítségével.  
+  
+  
+Lekérdezések megírása  
+  
 A következő feladat, hogy a lekérdezések
-meg legyenek írva.
+meg legyenek írva.  
 Megírom a lekérdezéseket
 (Könyvek elérhetőségei, Rendelések státusza, Vásárlók vásárlási 
 előzményei), utána lefuttatom és 
 leellenőrizem
-hogy jó-e.
-Könyvek elérhetőségei lekérdezés.
+hogy jó-e.  
+  
+Könyvek elérhetőségei lekérdezés.  
 Itt kilistázásra kerül az összes 
-könyv.
+könyv.  
 Ha a készleten van akkor “Elérhető” a könyv,
 különben 
-“Nem elérhető”.
-Rendelések státusza lekérdezés.
+“Nem elérhető”.  
+  
+Rendelések státusza lekérdezés.  
 Itt kilistázásra kerül az összes 
 rendelés a rendelés dátuma
-szerint rendezve.
+szerint rendezve.  
 Kiiratásra kerül a rendelés 
 azonosító, a név, az email, 
-a rendelés állapota.
-Vásárlók vásárlási előzményei lekérdezés.
+a rendelés állapota.  
+  
+Vásárlók vásárlási előzményei lekérdezés.  
 Itt kilistázásra kerül az, hogy
 ki, mikor, miből, mennyit
 vett. A rendelés dátuma 
 szerint lesz rendezve.
-
-12  
-Trigger megírása
+  
+  
+Trigger megírása  
+  
 A könyv készletének (van_keszleten) automatikus frissítéséhez triggert 
-használtam.
+használtam.  
 A triggerek olyan eseményvezérelt műveletek, amelyek automatikusan 
 végrehajtódnak egy adott tábla műveletei (INSERT, UPDATE, DELETE) 
-során.
+során.  
 A triggerek meghívásáról az adatbázis gondoskodik, nem manuálisan kell ezt 
 elvégezni. A trigger egy konkrét eseményhez és 
 egy konkrét táblához kötődik.
 A trigger egy trigger függvényt hív meg amelyben végrehajtásra 
-kerül a kívánt művelet.
+kerül a kívánt művelet.  
+  
 A “trg_frissit_konyvek” nevű trigger azt figyeli, hogyha egy
 INSERT esemény bekövetkezik a 
-Tételek táblán. 
+Tételek táblán.  
 A “trg_frissit_konyvek” nevű trigger meghívja a 
-“konyv_elerhetoseg_frissites” nevű függvényt.
+“konyv_elerhetoseg_frissites” nevű függvényt.  
+  
 A “konyv_elerhetoseg_frissites” nevű függvény
 frissíti a könyvek elérhetőségét, ha 
-“Teljesitett” a rendelés állapota.
+“Teljesitett” a rendelés állapota.  
 Ha a darab egyenlő 0, akkor 
-nincs készleten az adott könyv.
+nincs készleten az adott könyv.  
+  
 Ha “Teljesitett” a rendelés állapota, akkor
-frissítésre kerül a darab értéke.
+frissítésre kerül a darab értéke.  
 A darab értékéből kivonásra kerül a 
 mennyiseg (csak akkor, ha a kivonás 
 után a darab értéke nagyobb vagy 
-egyenlő a nullánál).
-
-
-13  
+egyenlő a nullánál).  
+  
+ 
 A trigger működésének leellenőrzéséhez odatettem
 néhány teszt adatot (Rendelések tábla adatbeszúrás 
-és Tételek tábla adatbeszúrás).
-Tárolt Eljárások megírása
-legjobban_fogyo_konyvek_procedure tárolt eljárás.
-Ehhez a feladathoz tárolt eljárásokat használtam.
+és Tételek tábla adatbeszúrás).  
+  
+Tárolt Eljárások megírása  
+  
+legjobban_fogyo_konyvek_procedure tárolt eljárás.  
+  
+Ehhez a feladathoz tárolt eljárásokat használtam.  
 A tárolt eljárások olyan előre definiált és az adatbázisban tárolt SQL vagy 
 PL/pgSQL kódok, amelyeket paraméterekkel hívhatunk meg. Ezeket akkor 
 használjuk, ha az üzleti logikát közvetlenül az adatbázisban szeretnénk 
-megvalósítani, nem pedig az alkalmazás kódjában.
+megvalósítani, nem pedig az alkalmazás kódjában.  
 Összetett műveleteket végeznek el, például adatmanipulációt, számításokat, 
-vagy más SQL műveletek végrehajtását.
+vagy más SQL műveletek végrehajtását.  
 Általuk például több lekérdezés és módosítás összefűzhető egyetlen 
-egységben.
+egységben.  
+  
 A tárolt eljárások paraméterezhetők. Elfogadnak bemeneti (IN), 
-kimeneti (OUT), vagy mindkettő (INOUT) paramétereket.
+kimeneti (OUT), vagy mindkettő (INOUT) paramétereket.  
+  
 A tárolt eljárások támogatják az elágazások (IF/CASE) és ciklusok 
-(LOOP/FOR) használatát.
+(LOOP/FOR) használatát.  
+  
 A tárolt eljárások meghívása
-a ‘CALL’ utasítással történik.
-
-14  
+a ‘CALL’ utasítással történik.  
+  
+ 
 A “ legjobban_fogyo_konyvek_procedure” nevű tárolt eljárás
 a ‘CALL’ utasítással történik és a létrehozott 
 temp table -ből (“legjobban_fogyo_konyvek_temp”) lehetséges az adatok 
-megtekintése.
+megtekintése.  
+  
 A tárolt eljárás segítségével a legjobban fogyó könyvekről 
 készíthetők statisztikák. A tárolt eljárás ideiglenes táblát hoz létre, amely 
-tartalmazza a legjobban fogyó könyveket az eladott példányszám alapján.
+tartalmazza a legjobban fogyó könyveket az eladott példányszám alapján.  
+  
 A tárolt eljárás bemeneti paraméterének megadható egy olyan érték, amivel 
 a visszaadott könyvek maximális számát lehet limitálni. A “top x eladott könyv”
-megadható ezzel.
-Az eljárás a következő feladatokat hajtja végre:
-Ideiglenes tábla létrehozása:
+megadható ezzel.  
+  
+Az eljárás a következő feladatokat hajtja végre:  
+  
+Ideiglenes tábla létrehozása:  
 Ha létezik már az ideiglenes tábla (legjobban_fogyo_konyvek_temp), 
-az eljárás törli azt, hogy biztosítsa az új adatok frissességét.
-Adatok összegyűjtése és betöltése:
+az eljárás törli azt, hogy biztosítsa az új adatok frissességét.  
+  
+Adatok összegyűjtése és betöltése:  
 Az ‘INSERT INTO ... SELECT’ utasítás segítségével feltölti az 
-ideiglenes táblát a könyvek adataival.
-A lekérdezés:
-Összesíti az eladott példányszámokat a “Tetelek” táblában.
+ideiglenes táblát a könyvek adataival.  
+  
+A lekérdezés:  
+Összesíti az eladott példányszámokat a “Tetelek” táblában.  
 Rendezi az adatokat az eladások összesített száma szerint csökkenő 
-sorrendben.
-Csak a “limit_szam” által meghatározott számú könyvet adja vissza.
-Visszajelzés:
+sorrendben.  
+Csak a “limit_szam” által meghatározott számú könyvet adja vissza.  
+  
+Visszajelzés:  
 Az eljárás végrehajtása után egy üzenetet küld (RAISE NOTICE), 
-amely jelzi, hogy az ideiglenes tábla készen áll.
-
-
-15  
+amely jelzi, hogy az ideiglenes tábla készen áll.  
+  
+ 
 Az ideiglenes táblában a következő adatok lesznek 
-amik aztán egy lekérdezéssel kiírattathatók:
-konyv_id (INT): A könyv egyedi azonosítója.
-cim (TEXT): A könyv címe.
-osszes_eladott (INT): Az adott könyvből eladott összes példányszám.
+amik aztán egy lekérdezéssel kiírattathatók:  
+konyv_id (INT): A könyv egyedi azonosítója.  
+cim (TEXT): A könyv címe.  
+osszes_eladott (INT): Az adott könyvből eladott összes példányszám.  
+  
 Fontos, hogy az ideiglenes tábla csak az aktuális adatbázis-kapcsolat 
-élettartamáig marad meg.
-Hibakezelés:
+élettartamáig marad meg.  
+  
+Hibakezelés:  
 Az eljárás figyeli, hogy létezik-e a “legjobban_fogyo_konyvek_temp” tábla. Ha 
 nem létezik, a ‘DROP TABLE’ parancs figyelmen kívül hagyja a hibát, és az 
-eljárás folytatódik.
-legaktivabb_vasarlok_procedure tárolt eljárás.
+eljárás folytatódik.  
+  
+legaktivabb_vasarlok_procedure tárolt eljárás.  
+  
 Ez az eljárás a legaktívabb vásárlókat tárolja el egy ideiglenes táblában az 
-általuk leadott rendelések száma alapján.
+általuk leadott rendelések száma alapján.  
+  
 A tárolt eljárás bemeneti paraméterének megadható egy olyan érték, amivel 
-a visszaadott legaktívabb vásárlók maximális számát lehet limitálni. 
-Működés:
-Ideiglenes tábla törlése:
+a visszaadott legaktívabb vásárlók maximális számát lehet limitálni.  
+  
+Működés:  
+  
+Ideiglenes tábla törlése:  
 Ha létezik a “legaktivabb_vasarlok_temp” tábla, az eljárás törli azt, hogy 
-helyet biztosítson az új adatoknak.
-
-16  
-Ideiglenes tábla létrehozása:
+helyet biztosítson az új adatoknak.  
+  
+  
+Ideiglenes tábla létrehozása:  
 Az ideiglenes tábla a vásárlók azonosítóját (vasarlo_id), nevét 
 (teljes_nev), és az általuk leadott rendelések számát (osszes_eladott) 
-tartalmazza.
-Adatok beillesztése:
-Összekapcsolja a Rendelesek és Vasarlok táblát.
-Összesíti, hogy az egyes vásárlók hány rendelést adtak le.
-Rendezi az adatokat csökkenő sorrendben a rendelések száma szerint.
+tartalmazza.  
+  
+Adatok beillesztése:  
+Összekapcsolja a Rendelesek és Vasarlok táblát.  
+Összesíti, hogy az egyes vásárlók hány rendelést adtak le.  
+Rendezi az adatokat csökkenő sorrendben a rendelések száma szerint.  
 Csak a megadott limit_szam értéknek megfelelő számú vásárlót helyezi 
-az ideiglenes táblába.
-Visszajelzés:
+az ideiglenes táblába.  
+  
+Visszajelzés:  
 Egy üzenetet küld (RAISE NOTICE), amely jelzi, hogy az ideiglenes 
-tábla készen áll.
-Az ideiglenes tábla oszlopai:
-vasarlo_id: (INT) A vásárló azonosítója
-teljes_nev: (TEXT) A vásárló teljes neve
-osszes_eladott: (INT) A vásárló által leadott rendelések száma
+tábla készen áll.  
+  
+Az ideiglenes tábla oszlopai:  
+vasarlo_id: (INT) A vásárló azonosítója  
+teljes_nev: (TEXT) A vásárló teljes neve  
+osszes_eladott: (INT) A vásárló által leadott rendelések száma  
+  
 Az eljárás figyelembe veszi azokat a rendeléseket, amelyek a Rendelesek 
-táblában szerepelnek.
-szamla_generalas tárolt eljárás.
-A Számla tábla sorainak beszúrásához tárolt eljárásokat használtam.
+táblában szerepelnek.  
+  
+szamla_generalas tárolt eljárás.  
+  
+A Számla tábla sorainak beszúrásához tárolt eljárásokat használtam.  
 A tárolt eljárás a vásárlás alapján hoz létre 
 számlákat. Egy rendelés alapján számlát generál, ha a rendelés teljesített 
-állapotban van, és még nem készült hozzá számla.
-
-17  
+állapotban van, és még nem készült hozzá számla.  
+  
+ 
 A tárolt eljárás bemeneti paraméterének megadható egy olyan érték, ami 
 az adott rendelésnek az azonosítója. Ehhez fog a tárolt eljárás számlát 
-generálni.
-Feltételek:
-A rendelésnek "Teljesített" állapotúnak kell lennie.
-A rendeléshez még nem létezhet számla.
-A rendelésnek tartalmaznia kell tételeket.
-Működés:
-Rendelés ellenőrzése:
+generálni.  
+  
+Feltételek:  
+A rendelésnek "Teljesített" állapotúnak kell lennie.  
+A rendeléshez még nem létezhet számla.  
+A rendelésnek tartalmaznia kell tételeket.  
+  
+Működés:  
+  
+Rendelés ellenőrzése:  
 Az eljárás megnézi, hogy a megadott rendelés
 “Teljesitett” állapotú-e és 
 létezik-e már hozzá számla. Ha már van számla, 
-az eljárás üzenetet küld és kilép.
-Teljes összeg számítása:
+az eljárás üzenetet küld és kilép.  
+  
+Teljes összeg számítása:  
 Az eljárás kiszámítja a rendelés teljes értékét a Tetelek és Konyvek 
 táblák alapján.
 A tételek mennyiségét megszorozza az adott könyv árával.
-Ha nincsenek tételek, hibát jelez.
-Számla létrehozása:
-Az eljárás bejegyzést készít a Szamlak táblába a következő adatokkal:
-rendeles_id: (INT) A rendelés azonosítója.
+Ha nincsenek tételek, hibát jelez.  
+  
+Számla létrehozása:  
+Az eljárás bejegyzést készít a Szamlak táblába a következő adatokkal:  
+rendeles_id: (INT) A rendelés azonosítója.  
 teljes_osszeg: (DECIMAL) A rendeléshez tartozó tételek 
-összértéke.
-teljesites_datuma: (DATE) A számla létrehozásának dátuma.
-
-
-18  
-Visszajelzés:
+összértéke.  
+teljesites_datuma: (DATE) A számla létrehozásának dátuma.  
+  
+ 
+Visszajelzés:  
 Az eljárás üzenetet küld (RAISE NOTICE), amely tartalmazza a 
-rendelés azonosítóját és a generált számla összegét.
-Hibák kezelése:
-Ha már létezik számla a rendeléshez, az eljárás értesíti a felhasználót.
-Ha a rendelés nem tartalmaz tételeket, hibaüzenet jelenik meg.
-
+rendelés azonosítóját és a generált számla összegét.  
+  
+Hibák kezelése:  
+Ha már létezik számla a rendeléshez, az eljárás értesíti a felhasználót.  
+Ha a rendelés nem tartalmaz tételeket, hibaüzenet jelenik meg.  
+  
 
 
   
