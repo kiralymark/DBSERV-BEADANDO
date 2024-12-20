@@ -118,77 +118,90 @@ Az adatbázis Vásárlók táblája partícionálást használ. Ez lehetővé te
 adatok hatékonyabb kezelését. A nagy adatmennyiségeket kisebb, 
 kezelhetőbb darabokra osztjuk általa.  
 A Vásárlók tábla város mezője kisebb darabokra van osztva:  
-Budapest, Miskolc, Siófok, Szikszó, Egyéb (ez az alapértelmezett érték).
-A lekérdezések idejének meggyorsításában segít például a partícionálás.
+Budapest, Miskolc, Siófok, Szikszó, Egyéb (ez az alapértelmezett érték).  
+A lekérdezések idejének meggyorsításában segít például a partícionálás.  
+  
 Adatbázis technológiák és adatbázis kezdeti beállítások elvégzése
-A feladat megoldásához felhasznált technológiák:
+  
+A feladat megoldásához felhasznált technológiák:  
 SQL,
 Postgres SQL,
 PL/pgSQL,
 DBeaver,
 Docker Desktop.
-{FÁJL: Script-03.sql}
-Először az adatbázis kezdeti beállításait kell elvégezni.
-A parancssorban (CMD) a 
-docker pull
+  
+[{FÁJL: Script-03.sql}](../Script-03.sql)  
+Először az adatbázis kezdeti beállításait kell elvégezni.  
+  
+A parancssorban (CMD) a  
+```docker pull```  
 paranccsal a postgres sql legfrissebb verzióját
 letöltjük a számítógépre.
-
-6  
-A parancssorban a 
-docker run
+  
+  
+A parancssorban a  
+```docker run```  
 parancssal kettő konténert hozunk létre 
-a Dockerben.
-Az első konténert a feladatok többségének 
-megoldásához hoztam létre.
-A második konténert az adatbázis 
+a Dockerben.  
+Az **első konténert** a feladatok többségének 
+megoldásához hoztam létre.  
+A **második konténert** az adatbázis 
 teljesítmény analízis elvégzéséhez 
-hoztam létre.
-A második konténerhez kerültek be 
-az automatikusan létrehozott (10000 sornyi) adatok.
-A konténerek nevei:
+hoztam létre.  
+A **második konténerhez** kerültek be 
+az automatikusan létrehozott (10000 sornyi) adatok.  
+  
+A konténerek nevei:  
 pg4 és
-pg5.
-Az első konténer az 5490 -es porton fut.
-A második konténer az 5492 -es porton fut.
-Mindkét konténer esetében
-a felhasználó: postgres
-a jelszó: postgres
+pg5.  
+Az **első konténer** az 5490 -es porton fut.  
+A **második konténer** az 5492 -es porton fut.  
+  
+Mindkét konténer esetében  
+a felhasználó: postgres  
+a jelszó: postgres  
+  
 A pg4 -hez tartozik a konyvesbolt_beadando_1
-adatbázis.
+adatbázis.  
 A pg5 -höz tartozik a konyvesbolt_beadando_2
-adatbázis.
+adatbázis.  
 Mindkét konténer “detached” módban a háttérben
-fut postgres sql -el.
-
-7  
-A parancssorban a 
-docker stop
+fut postgres sql -el.   
+  
+ 
+A parancssorban a  
+```docker stop```  
 parancsokkal leállítom mindkét
 konténer futását (de a konténerek
-tartalma nem törlődik).
-A parancssorban a 
-docker start
+tartalma nem törlődik).  
+  
+A parancssorban a  
+```docker start```  
 parancsokkal elindítom mindkét
-konténer futását.
+konténer futását.  
+  
 A parancssorban a 
-docker exec
+```docker exec```
 parancssal
 hozzáférek az adott konténerhez
-(belépek a konténerbe).
-Az 
-exit
+(belépek a konténerbe).  
+  
+Az  
+```exit```
 paranccsal kilépek az adott
-konténerből.
+konténerből.  
+  
 Most jönnek a PostgreSQL -hez
-tartozó utasítások.
-A parancssorban a 
+tartozó utasítások.  
+  
+A parancssorban a  
+```sql 
 SELECT current_database();
+```  
 parancs visszaadja az aktuálisan
-csatlakoztatott adatbázis nevét.
+csatlakoztatott adatbázis nevét.  
+  
 
-
-8  
 A parancssorban a 
 \c konyvesbolt_beadando_2
 parancs a 
