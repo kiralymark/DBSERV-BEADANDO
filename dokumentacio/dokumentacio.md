@@ -553,7 +553,7 @@ Az adatbázis táblák szerkezete
 Az online könyvesbolt adatbázis a következő adatokat kezeli a táblák 
 segítségével.  
   
-Az adatbázis szerkezet, az adattípusok megegyeznek az első adatbáziséval.  
+Az adatbázis szerkezet, az adattípusok megegyeznek az **első adatbáziséval.**  
   
   
 Adatbázis táblák:  
